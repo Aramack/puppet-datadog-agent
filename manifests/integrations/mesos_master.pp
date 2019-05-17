@@ -53,7 +53,7 @@ class datadog_agent::integrations::mesos_master(
       require => Package[$datadog_agent::params::package_name],
       notify  => Service[$datadog_agent::params::service_name]
     }
-    $dst_master = "${dst_dir}/conf.yaml"
+    $dst_master = "${dst_master_dir}/conf.yaml"
   } else {
     $dst_master = $legacy_dst_master
   }
