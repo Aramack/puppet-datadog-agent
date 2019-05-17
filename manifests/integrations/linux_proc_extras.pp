@@ -20,7 +20,7 @@ class datadog_agent::integrations::linux_proc_extras(
 
   $legacy_dst = "${datadog_agent::conf_dir}/linux_proc_extras.yaml"
   if !$::datadog_agent::agent5_enable {
-    $dst = "${datadog_agent::conf6_dir}/linux_proc_extras.d"
+    $dst_dir = "${datadog_agent::conf6_dir}/linux_proc_extras.d"
     file { $legacy_dst:
       ensure => 'absent'
     }

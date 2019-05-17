@@ -20,7 +20,7 @@ class datadog_agent::integrations::marathon(
 
   $legacy_dst = "${datadog_agent::conf_dir}/marathon.yaml"
   if !$::datadog_agent::agent5_enable {
-    $ds_dirt = "${datadog_agent::conf6_dir}/marathon.d"
+    $dst_dir = "${datadog_agent::conf6_dir}/marathon.d"
     file { $legacy_dst:
       ensure => 'absent'
     }

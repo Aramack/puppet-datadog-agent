@@ -67,7 +67,7 @@ class datadog_agent::integrations::docker_daemon(
   if !$::datadog_agent::agent5_enable {
     $legacy_dir = "${datadog_agent::conf6_dir}/docker_daemon.d"
 
-    file { $dst_dir:
+    file { $legacy_dir:
       ensure  => directory,
       owner   => $datadog_agent::params::dd_user,
       group   => $datadog_agent::params::dd_group,
@@ -75,7 +75,7 @@ class datadog_agent::integrations::docker_daemon(
       require => Package[$datadog_agent::params::package_name],
       notify  => Service[$datadog_agent::params::service_name]
     }
-    $legacy_conf = "${dst_dir}/conf.yaml"
+    $legacy_conf = "${legacy_dir}/conf.yaml"
   } else {
     $legacy_conf = "${datadog_agent::conf_dir}/docker.yaml"
   }
